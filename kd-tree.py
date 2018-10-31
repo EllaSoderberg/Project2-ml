@@ -1,28 +1,22 @@
 from operator import itemgetter
 import matplotlib.pyplot as plt
 import numpy as np
-from collections import namedtuple
-from sklearn.neighbors.kd_tree import KDTree
 
-'''
-class Node(namedtuple('Node', 'location left_child right_child')):
-    def __repr__(self):
-        return pformat(tuple(self))
-'''
+#Node used for kdtree
 class Node:
-    def __init__(self, location, left_child, right_child):
-        self.location = location
+    def __init__(self, value, left_child, right_child):
+        self.value = value
         self.left_child = left_child
         self.right_child = right_child
 
+#Constructs kdtree
 def kdtree(points, axis=0):
 
-    if len(points) == 0:
+    if len(points) == 0: #Recursion ending condition
         return None
 
-    # Sort point list and choose median as pivot element
     points.sort(key=itemgetter(axis))
-    median = len(points) // 2  # choose median
+    median = len(points) // 2
 
     # Create node and construct subtrees
     return Node(points[median], kdtree(points[:median], 1 - axis), kdtree(points[median + 1:], 1 - axis))
@@ -45,42 +39,22 @@ while line:
 
 x_variance = np.var(x_list)
 y_variance = np.var(y_list)
-points = [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)]
+#points = [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)]
 
 kd_tree = kdtree(points)
-n = 50        # number of points
 min_val = 0   # minimal coordinate value
 max_val = 10  # maximal coordinate value
 delta = 0
-# line width for visualization of K-D tree
-line_width = [4., 3.5, 3., 2.5, 2., 1.5, 1., .5, 0.3]
 
 
-def plot_tree(tree, min_x, max_x, min_y, max_y, prev_node, branch, depth=0):
-    """ plot K-D tree
-    :param tree      input tree to be plotted
-    :param min_x
-    :param max_x
-    :param min_y
-    :param max_y
-    :param prev_node parent's node
-    :param branch    True if left, False if right
-    :param depth     tree's depth
-    :return tree     node
-    """
+def plot_tree_node(tree, min_x, max_x, min_y, max_y, prev_node, branch, axis=0):
 
-    cur_node = tree.location  # current tree's node
+    cur_node = tree.value  # current tree's node
     left_branch = tree.left_child  # its left branch
     right_branch = tree.right_child  # its right branch
 
-    # set line's width depending on tree's depth
-    if depth > len(line_width) - 1:
-        ln_width = line_width[len(line_width) - 1]
-    else:
-        ln_width = line_width[depth]
-
+    ln_width = 2
     k = len(cur_node)
-    axis = depth % k
 
     # draw a vertical splitting line
     if axis == 0:
@@ -111,26 +85,27 @@ def plot_tree(tree, min_x, max_x, min_y, max_y, prev_node, branch, depth=0):
 
     # draw left and right branches of the current node
     if left_branch is not None:
-        plot_tree(left_branch, min_x, max_x, min_y, max_y, cur_node, True, depth + 1)
+        plot_tree_node(left_branch, min_x, max_x, min_y, max_y, cur_node, True, 1 - axis)
 
     if right_branch is not None:
-        plot_tree(right_branch, min_x, max_x, min_y, max_y, cur_node, False, depth + 1)
+        plot_tree_node(right_branch, min_x, max_x, min_y, max_y, cur_node, False, 1 - axis)
 
+def prepare_plot(size, min_val, max_val, delta):
+    plt.figure("K-d Tree", figsize=(size, size))
+    plt.axis([min_val - delta, max_val + delta, min_val - delta, max_val + delta])
 
-plt.figure("K-d Tree", figsize=(10., 10.))
-plt.axis([min_val - delta, max_val + delta, min_val - delta, max_val + delta])
+    plt.grid(b=True, which='major', color='0.75', linestyle='--')
+    plt.xticks([i for i in range(min_val - delta, max_val + delta, 1)])
+    plt.yticks([i for i in range(min_val - delta, max_val + delta, 1)])
 
-plt.grid(b=True, which='major', color='0.75', linestyle='--')
-plt.xticks([i for i in range(min_val - delta, max_val + delta, 1)])
-plt.yticks([i for i in range(min_val - delta, max_val + delta, 1)])
+def plot_tree(tree, min_val, max_val, delta):
 
-# draw the tree
-plot_tree(kd_tree, min_val - delta, max_val + delta, min_val - delta, max_val + delta, None, None)
+    prepare_plot(5, min_val, max_val, delta)
+    plot_tree_node(kd_tree, min_val - delta, max_val + delta, min_val - delta, max_val + delta, None, None)
+    plt.title('K-D Tree')
+    plt.show()
+    plt.close()
 
-plt.title('K-D Tree')
-plt.show()
-plt.close()
-
-
+plot_tree(kd_tree, min_val, max_val, delta)
 
 

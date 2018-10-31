@@ -4,30 +4,28 @@ import numpy as np
 from collections import namedtuple
 from sklearn.neighbors.kd_tree import KDTree
 
-
+'''
 class Node(namedtuple('Node', 'location left_child right_child')):
     def __repr__(self):
         return pformat(tuple(self))
+'''
+class Node:
+    def __init__(self, location, left_child, right_child):
+        self.location = location
+        self.left_child = left_child
+        self.right_child = right_child
 
+def kdtree(points, axis=0):
 
-def kdtree(point_list, depth=0):
-    try:
-        k = len(point_list[0])  # assumes all points have the same dimension
-    except IndexError as e:  # if not point_list:
+    if len(points) == 0:
         return None
-    # Select axis based on depth so that axis cycles through all valid values
-    axis = depth % k
 
     # Sort point list and choose median as pivot element
-    point_list.sort(key=itemgetter(axis))
-    median = len(point_list) // 2  # choose median
+    points.sort(key=itemgetter(axis))
+    median = len(points) // 2  # choose median
 
     # Create node and construct subtrees
-    return Node(
-        location=point_list[median],
-        left_child=kdtree(point_list[:median], depth + 1),
-        right_child=kdtree(point_list[median + 1:], depth + 1)
-    )
+    return Node(points[median], kdtree(points[:median], 1 - axis), kdtree(points[median + 1:], 1 - axis))
 
 
 file = open("..\Project2-ml\MLHW2\datasets\points.txt", "r")
@@ -47,6 +45,7 @@ while line:
 
 x_variance = np.var(x_list)
 y_variance = np.var(y_list)
+points = [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)]
 
 kd_tree = kdtree(points)
 n = 50        # number of points

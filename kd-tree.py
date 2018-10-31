@@ -21,32 +21,6 @@ def kdtree(points, axis=0):
     # Create node and construct subtrees
     return Node(points[median], kdtree(points[:median], 1 - axis), kdtree(points[median + 1:], 1 - axis))
 
-
-file = open("..\Project2-ml\MLHW2\datasets\points.txt", "r")
-
-line = file.readline()
-points = []
-x_list = []
-y_list = []
-while line:
-    line = line.split()
-    x = int(line[0])
-    y = int(line[1])
-    points.append((x, y))
-    x_list.append(x)
-    y_list.append(y)
-    line = file.readline()
-
-x_variance = np.var(x_list)
-y_variance = np.var(y_list)
-#points = [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)]
-
-kd_tree = kdtree(points)
-min_val = 0   # minimal coordinate value
-max_val = 10  # maximal coordinate value
-delta = 0
-
-
 def plot_tree_node(tree, min_x, max_x, min_y, max_y, prev_node, branch, axis=0):
 
     cur_node = tree.value  # current tree's node
@@ -101,11 +75,42 @@ def prepare_plot(size, min_val, max_val, delta):
 def plot_tree(tree, min_val, max_val, delta):
 
     prepare_plot(5, min_val, max_val, delta)
-    plot_tree_node(kd_tree, min_val - delta, max_val + delta, min_val - delta, max_val + delta, None, None)
+    plot_tree_node(tree, min_val - delta, max_val + delta, min_val - delta, max_val + delta, None, None)
     plt.title('K-D Tree')
     plt.show()
     plt.close()
 
-plot_tree(kd_tree, min_val, max_val, delta)
+def read_data_from_file(filename):
+    file = open("..\Project2-ml\MLHW2\datasets\points.txt", "r")
+    line = file.readline()
+    points = []
+    while line:
+        line = line.split()
+        x = int(line[0])
+        y = int(line[1])
+        points.append((x, y))
+        line = file.readline()
+    #points = [(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)]
+    return points
+
+def process_kd_tree(points):
+    x_variance = np.var([point[0] for point in points])
+    y_variance = np.var([point[1] for point in points])
+
+    axis = 0 if x_variance >= y_variance else 1
+
+    tree = kdtree(points, axis)
+
+    min_val = 0
+    max_val = max(max([point[0] for point in points]), max([point[1] for point in points]))
+    delta = 0
+
+    plot_tree(tree, min_val, max_val, delta)
+
+filename = "..\Project2-ml\MLHW2\datasets\points.txt"
+points = read_data_from_file(filename)
+process_kd_tree(points)
+
+
 
 

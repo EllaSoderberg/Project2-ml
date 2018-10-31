@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8beb976d-7989-4bdf-ad5b-a25b49661883" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Project2-ml.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Project2-ml.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8beb976d-7989-4bdf-ad5b-a25b49661883" name="Default" comment="Reading file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kd-tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/kd-tree.py" afterDir="false" />
     </list>
@@ -36,12 +34,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="104" />
+          <entry key="py" value="426" />
+          <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="104" />
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="Python" value="426" />
         </counts>
       </usages-collector>
     </session>
@@ -63,8 +63,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kd-tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="136">
+              <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -266,6 +269,14 @@
       <option name="presentableId" value="Default" />
       <updated>1540863415330</updated>
     </task>
+    <task id="LOCAL-00001" summary="Reading file">
+      <created>1540989934400</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540989934400</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -282,7 +293,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32524964" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.39954337" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39942938" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -293,6 +304,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Reading file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reading file" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/file_cleaning.py" />
@@ -332,8 +347,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kd-tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="136">
+          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

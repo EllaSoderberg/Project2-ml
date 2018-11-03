@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8beb976d-7989-4bdf-ad5b-a25b49661883" name="Default" comment="Reading file" />
+    <list default="true" id="8beb976d-7989-4bdf-ad5b-a25b49661883" name="Default" comment="Reading file">
+      <change beforePath="$PROJECT_DIR$/ML report 2.docx" beforeDir="false" afterPath="$PROJECT_DIR$/ML report 2.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kd-tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/kd-tree.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +20,8 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -32,14 +36,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1534" />
+          <entry key="py" value="1637" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="1534" />
+          <entry key="Python" value="1637" />
         </counts>
       </usages-collector>
     </session>
@@ -49,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/k-means.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="289">
               <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -61,19 +65,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kd-tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+            <state relative-caret-position="340">
+              <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-                <element signature="e#315#478#0" />
-                <element signature="e#518#880#0" />
-                <element signature="e#703#1959#0" />
-                <element signature="e#2014#2352#0" />
-                <element signature="e#2405#2607#0" />
-                <element signature="e#2649#2917#0" />
-                <element signature="e#3016#3374#0" />
-                <marker date="1541003848112" expanded="true" signature="117:297" ph="..." />
-                <marker date="1541003848112" expanded="true" signature="2708:2709" ph="..." />
+                <marker date="1541251621877" expanded="true" signature="95:257" ph="..." />
+                <marker date="1541251621877" expanded="true" signature="2427:2428" ph="..." />
               </folding>
             </state>
           </provider>
@@ -119,11 +116,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-13" />
+    <option name="y" value="-13" />
     <option name="width" value="1943" />
-    <option name="height" value="1043" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -278,7 +275,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1554" height="834" extended-state="0" />
+    <frame x="-10" y="-10" width="1554" height="835" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.3295979" />
@@ -289,7 +287,7 @@
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.32524964" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.26638177" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39942938" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -316,22 +314,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../project1-ml/dataset_functions.py" />
-    <entry file="file://$PROJECT_DIR$/visualization.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partitioning.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/k-means.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main_p2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -339,24 +321,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/k-means.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/accuracy.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partitioning.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/kd-tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        <state relative-caret-position="340">
+          <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#315#478#0" />
-            <element signature="e#518#880#0" />
-            <element signature="e#703#1959#0" />
-            <element signature="e#2014#2352#0" />
-            <element signature="e#2405#2607#0" />
-            <element signature="e#2649#2917#0" />
-            <element signature="e#3016#3374#0" />
-            <marker date="1541003848112" expanded="true" signature="117:297" ph="..." />
-            <marker date="1541003848112" expanded="true" signature="2708:2709" ph="..." />
+            <marker date="1541251621877" expanded="true" signature="95:257" ph="..." />
+            <marker date="1541251621877" expanded="true" signature="2427:2428" ph="..." />
           </folding>
         </state>
       </provider>

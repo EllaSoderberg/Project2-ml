@@ -2,14 +2,13 @@ from operator import itemgetter
 import matplotlib.pyplot as plt
 import numpy as np
 
-#Node used for kdtree
 class Node:
     def __init__(self, value, left_child, right_child):
         self.value = value
         self.left_child = left_child
         self.right_child = right_child
 
-#Constructs kdtree
+
 def kdtree(points, axis=0):
 
     if len(points) == 0: #Recursion ending condition
@@ -18,7 +17,6 @@ def kdtree(points, axis=0):
     points.sort(key=itemgetter(axis))
     median = len(points) // 2
 
-    # Create node and construct subtrees
     return Node(points[median], kdtree(points[:median], 1 - axis), kdtree(points[median + 1:], 1 - axis))
 
 def plot_tree_node(tree, min_x, max_x, min_y, max_y, prev_node, branch, axis=0):
@@ -28,9 +26,7 @@ def plot_tree_node(tree, min_x, max_x, min_y, max_y, prev_node, branch, axis=0):
     right_branch = tree.right_child  # its right branch
 
     ln_width = 2
-    k = len(cur_node)
 
-    # draw a vertical splitting line
     if axis == 0:
 
         if branch is not None and prev_node is not None:
@@ -42,7 +38,7 @@ def plot_tree_node(tree, min_x, max_x, min_y, max_y, prev_node, branch, axis=0):
 
         plt.plot([cur_node[0], cur_node[0]], [min_y, max_y], linestyle='-', color='red', linewidth=ln_width)
 
-    # draw a horizontal splitting line
+
     elif axis == 1:
 
         if branch is not None and prev_node is not None:
@@ -54,10 +50,10 @@ def plot_tree_node(tree, min_x, max_x, min_y, max_y, prev_node, branch, axis=0):
 
         plt.plot([min_x, max_x], [cur_node[1], cur_node[1]], linestyle='-', color='blue', linewidth=ln_width)
 
-    # draw the current node
+
     plt.plot(cur_node[0], cur_node[1], 'ko')
 
-    # draw left and right branches of the current node
+
     if left_branch is not None:
         plot_tree_node(left_branch, min_x, max_x, min_y, max_y, cur_node, True, 1 - axis)
 
@@ -72,16 +68,16 @@ def prepare_plot(size, min_val, max_val, delta):
     plt.xticks([i for i in range(min_val - delta, max_val + delta, 1)])
     plt.yticks([i for i in range(min_val - delta, max_val + delta, 1)])
 
-def plot_tree(tree, min_val, max_val, delta):
+def plot_tree(tree, min_val, max_val, delta, axis):
 
     prepare_plot(5, min_val, max_val, delta)
-    plot_tree_node(tree, min_val - delta, max_val + delta, min_val - delta, max_val + delta, None, None)
+    plot_tree_node(tree, min_val - delta, max_val + delta, min_val - delta, max_val + delta, None, None, axis)
     plt.title('K-D Tree')
     plt.show()
     plt.close()
 
 def read_data_from_file(filename):
-    file = open("..\Project2-ml\MLHW2\datasets\points.txt", "r")
+    file = open(filename, "r")
     line = file.readline()
     points = []
     while line:
@@ -102,10 +98,11 @@ def process_kd_tree(points):
     tree = kdtree(points, axis)
 
     min_val = 0
-    max_val = max(max([point[0] for point in points]), max([point[1] for point in points]))
+    max_val = max(max([point[0] for point in points]), max([point[1] for point in points])) + 1
     delta = 0
 
-    plot_tree(tree, min_val, max_val, delta)
+    plot_tree(tree, min_val, max_val, delta, axis)
+
 
 filename = "..\Project2-ml\MLHW2\datasets\points.txt"
 points = read_data_from_file(filename)

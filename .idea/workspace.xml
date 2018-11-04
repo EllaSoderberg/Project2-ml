@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8beb976d-7989-4bdf-ad5b-a25b49661883" name="Default" comment="Reading file">
-      <change beforePath="$PROJECT_DIR$/ML report 2.docx" beforeDir="false" afterPath="$PROJECT_DIR$/ML report 2.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kd-tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/kd-tree.py" afterDir="false" />
-    </list>
+    <list default="true" id="8beb976d-7989-4bdf-ad5b-a25b49661883" name="Default" comment="Reading file" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +15,7 @@
     <session id="902865774">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.opened" value="2" />
@@ -65,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kd-tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
+            <state relative-caret-position="289">
+              <caret line="95" column="47" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="95" selection-end-column="47" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
                 <marker date="1541251621877" expanded="true" signature="95:257" ph="..." />
@@ -116,7 +113,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-13" />
     <option name="y" value="-13" />
     <option name="width" value="1943" />
@@ -276,7 +273,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="-10" width="1554" height="835" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.3295979" />
@@ -287,7 +283,7 @@
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.26638177" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.26638177" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39942938" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -342,8 +338,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kd-tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
+        <state relative-caret-position="289">
+          <caret line="95" column="47" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="95" selection-end-column="47" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
             <marker date="1541251621877" expanded="true" signature="95:257" ph="..." />

@@ -7,10 +7,12 @@ from accuracy import accuracy_of_clusters
 
 
 noah_dataset = pd.read_csv('MLHW2/datasets/data_noah.csv')
-noah_dataset['pitch_type'].value_counts()
+print(noah_dataset[['speed', 'pitch_type']])
 X = noah_dataset[['x', 'y']]
+#X = noah_dataset[['speed', 'sz_bot']]
 y_true = noah_dataset['pitch_type']
 y_true_num = y_true.replace(['CH', 'CU', 'FF'], [0, 1, 2])
+#y_true_num = y_true.replace(['FF', 'CH', 'CU'], [0, 1, 2])
 
 
 def noah_scatterplot(noah_dataset):
@@ -27,19 +29,14 @@ def noah_scatterplot(noah_dataset):
     ax2.scatter(CH_data['x'], CH_data['y'], color='DarkGreen', label='CH')
     ax3.scatter(CU_data['x'], CU_data['y'], color='Yellow', label='CU')
 
-    #plt.show()
+    plt.legend()
+    plt.show()
 
 
 def find_clusters(X, n_clusters, r_state=2):
-    """
-    :param X: A dataset with two different labels
-    :param n_clusters: the numbers of clusters to create
-    :param r_state:
-    :return:
-    """
     # Randomly choose what points to use as centers
-    rng = np.random.RandomState(r_state)
-    i = rng.permutation(X.shape[0])[:n_clusters]
+    rnd = np.random.RandomState(r_state)
+    i = rnd.permutation(X.shape[0])[:n_clusters]
     center_points = X.iloc[i]
 
     while True:
@@ -59,10 +56,15 @@ def find_clusters(X, n_clusters, r_state=2):
 centers, labels = find_clusters(X, 3)
 
 noah_scatterplot(noah_dataset)
-plt.scatter(X['x'], X['y'], c=labels, s=50, cmap='viridis')
+plt.scatter(X['x'], X['y'], c=y_true_num, s=10, cmap='viridis')
+#plt.scatter(X['speed'], X['sz_bot'], c=y_true_num, s=10, cmap='viridis')
 plt.show()
 
-print("Total accuracy: {}%".format(accuracy_score(y_true_num, labels)*100))
+plt.scatter(X['x'], X['y'], c=labels, s=10, cmap='viridis')
+#plt.scatter(X['speed'], X['sz_bot'], c=labels, s=10, cmap='viridis')
+plt.show()
+
+print("Total accuracy: {}%".format(accuracy_score(list(y_true_num), list(labels))*100))
 labelspd = pd.DataFrame(labels)
 accuracy_of_clusters(labelspd, y_true, 3)
 

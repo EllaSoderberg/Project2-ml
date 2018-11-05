@@ -111,6 +111,3 @@ filename = "..\Project2-ml\MLHW2\datasets\points.txt"
 points = read_data_from_file(filename)
 process_kd_tree(points)
 
-
-
-

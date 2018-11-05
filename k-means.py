@@ -2,13 +2,15 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import pairwise_distances_argmin
-from accuracy import accuracyOfClusters
+from sklearn.metrics import accuracy_score
+from accuracy import accuracy_of_clusters
 
 
 noah_dataset = pd.read_csv('MLHW2/datasets/data_noah.csv')
 noah_dataset['pitch_type'].value_counts()
 X = noah_dataset[['x', 'y']]
 y_true = noah_dataset['pitch_type']
+y_true_num = y_true.replace(['CH', 'CU', 'FF'], [0, 1, 2])
 
 
 def noah_scatterplot(noah_dataset):
@@ -25,28 +27,34 @@ def noah_scatterplot(noah_dataset):
     ax2.scatter(CH_data['x'], CH_data['y'], color='DarkGreen', label='CH')
     ax3.scatter(CU_data['x'], CU_data['y'], color='Yellow', label='CU')
 
-    plt.show()
+    #plt.show()
 
 
 def find_clusters(X, n_clusters, r_state=2):
+    """
+    :param X: A dataset with two different labels
+    :param n_clusters: the numbers of clusters to create
+    :param r_state:
+    :return:
+    """
     # Randomly choose what points to use as centers
     rng = np.random.RandomState(r_state)
     i = rng.permutation(X.shape[0])[:n_clusters]
-    centers = X.iloc[i]
+    center_points = X.iloc[i]
 
     while True:
-        # Computing the minimum distance between the center and the set of points around it
-        labels = pairwise_distances_argmin(X, centers)
+        # Finding the label of the points closest to the center points
+        labels = pairwise_distances_argmin(X, center_points)
 
         # Find new centers from mean of points
-        new_centers = np.array([X[labels == i].mean(0)for i in range(n_clusters)])
+        new_centers = np.array([X[labels == a].mean(0)for a in range(n_clusters)])
 
         # See if it matches
-        if np.all(centers == new_centers):
+        if np.all(center_points == new_centers):
             break
-        centers = new_centers
+        center_points = new_centers
 
-    return centers, labels
+    return center_points, labels
 
 centers, labels = find_clusters(X, 3)
 
@@ -54,8 +62,9 @@ noah_scatterplot(noah_dataset)
 plt.scatter(X['x'], X['y'], c=labels, s=50, cmap='viridis')
 plt.show()
 
-labelspd= pd.DataFrame(labels)
-accuracyOfClusters(labelspd,y_true,3)
+print("Total accuracy: {}%".format(accuracy_score(y_true_num, labels)*100))
+labelspd = pd.DataFrame(labels)
+accuracy_of_clusters(labelspd, y_true, 3)
 
 
 

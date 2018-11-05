@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import pairwise_distances_argmin
+from accuracy import accuracyOfClusters
+
 
 noah_dataset = pd.read_csv('MLHW2/datasets/data_noah.csv')
 noah_dataset['pitch_type'].value_counts()
@@ -52,6 +54,8 @@ noah_scatterplot(noah_dataset)
 plt.scatter(X['x'], X['y'], c=labels, s=50, cmap='viridis')
 plt.show()
 
+labelspd= pd.DataFrame(labels)
+accuracyOfClusters(labelspd,y_true,3)
 
 
 

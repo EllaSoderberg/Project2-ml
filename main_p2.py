@@ -3,8 +3,11 @@ import k_means
 from accuracy import accuracy_of_clusters
 from sklearn.metrics import accuracy_score
 import visualization
+import kd_tree
 
 noah_dataset = pd.read_csv('MLHW2/datasets/data_noah.csv')
+filename = "..\Project2-ml\MLHW2\datasets\points.txt"
+points = kd_tree.read_data_from_file(filename)
 
 
 def main(dataset, features, target, label_order, n_clusters, r_state=2, plot=False):
@@ -24,3 +27,4 @@ def main(dataset, features, target, label_order, n_clusters, r_state=2, plot=Fal
 if __name__ == '__main__':
     main(noah_dataset, ['x', 'y'], 'pitch_type', ['CH', 'CU', 'FF'], 3, plot=True)
     main(noah_dataset, ['speed', 'sz_bot'], 'pitch_type', ['FF', 'CH', 'CU'], 3, plot=True)
+    kd_tree.process_kd_tree(points)
